@@ -146,3 +146,8 @@ body {
   background-image: radial-gradient(circle at center, #d09aff 0%, #a011ff 70%);
   /*background-image: radial-gradient(circle at center, #fdfdfd 0%, #828282 70%);*/
 }
+.g4 {
+  /*background-image: radial-gradient(circle at center, #ff0000 0%, #ffc300 70%);*/
+  background-image: radial-gradient(circle at center, #125dff 0%, #5375ff 70%);
+  /*background-image: radial-gradient(circle at center, #fdfdfd 0%, #828282 70%);*/
+}

@@ -10,14 +10,14 @@ import Image from "next/image";
 const CustomNode = ({ data }) => {
     const [state, setState] = React.useState(false);
     return (
-        <div className={` p-2 rounded-[50%] relative bg-white h-[84px] ${data.ground} w-[180px] flex justify-center items-center` }>
+        <div className={` p-2 rounded-[50%] relative bg-white h-[70px] ${state && data.ground} w-[180px] flex justify-center items-center z-[100000000]` }>
             <Handle
                 type="target"
                 position="top"
                 className={'bg-black'}
                 style={{ background: '#000', width: '0px', height: '0px' ,opacity:0}}
             />
-            <Image src={data.src} className={'absolute z-2 bottom-0'} alt={''} width={200} height={900} onMouseEnter={()=>alert('d')}/>
+            <Image src={data.src} className={'absolute z-2 bottom-4'} alt={''} width={800} height={900} onMouseEnter={()=>setState(true)} onMouseLeave={()=>setState(false)} />
             {/*<Image src={'/image/boss1.png'} className={'absolute z-3 bottom-[53px] left-[25px]'} alt={''} width={130} height={900} />*/}
             {/*<div className={'absolute bottom-0 left-0 w-full h-[102px] test rounded-[50%]'}></div>*/}
             <Handle
@@ -41,7 +41,7 @@ const initialNodes = [
         type: 'custom',
         position: { x: 0, y: 0 },
         data: {
-            src:'/image/m1.png',
+            src:'/boss0.png',
             ground:'g1'
         },
     },
@@ -55,7 +55,7 @@ const initialNodes = [
             background: '#cce5ff',
             borderColor: '#0052cc',
             color: '#003087',
-            src:'/image/m2.png',
+            src:'/boss1.png',
             ground:'g2'
 
         },
@@ -69,12 +69,12 @@ const initialNodes = [
             background: '#fff3cd',
             borderColor: '#ffca2c',
             color: '#664d03',
-            src:'/image/m3.png',
+            src:'/boss2.png',
             ground:'g3'
 
         },
     },
-/*    {
+  {
         id: '4',
         type: 'custom',
         position: { x: 400, y: 600 },
@@ -83,7 +83,7 @@ const initialNodes = [
             background: '#e2e3e5',
             borderColor: '#6c757d',
             color: '#343a40',
-            src:'/image/m1.png',
+            src:'/boss3.png',
             ground:'g4'
 
         },
@@ -98,11 +98,11 @@ const initialNodes = [
             background: '#f8d7da',
             borderColor: '#dc3545',
             color: '#721c24',
-            src:'/image/m1.png',
+            src:'/boss4.png',
             ground:'g5'
 
         },
-    },*/
+    }
 ];
 
 // Define edges with verified source and target IDs
@@ -123,6 +123,8 @@ const Roadmap = () => {
                 nodesDraggable={false}
                 nodesConnectable={false}
                 elementsSelectable={false}
+                onNodeClick={(event, node) => {
+                }}
                 panOnDrag={true}
                 // zoomOnScroll={true}
                 // panOnScroll={true}
@@ -130,7 +132,7 @@ const Roadmap = () => {
             >
 
                 {/*<Controls />*/}
-                <Background  gap={20} size={0} className={'bg-[#000]'} />
+                <Background  gap={20} size={0} className={'bg-0]'} />
             </ReactFlow>
         </div>
     );

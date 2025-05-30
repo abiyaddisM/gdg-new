@@ -51,7 +51,9 @@ export default async function handler(req, res) {
         // Parse the cleaned JSON string
         let jsonQuestion;
         try {
+
             jsonQuestion = JSON.parse(cleaned);
+
         } catch (parseError) {
             console.error("JSON parsing error:", parseError.message);
             console.error("Invalid JSON string:", cleaned);
